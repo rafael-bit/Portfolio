@@ -1,5 +1,13 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
 export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+  function typeWriter(element) {
+    const textArray = element.innerHTML.split('');
+    element.innerHTML = '';
+    textArray.forEach((letter, i) => {
+      setTimeout(() => element.innerHTML += letter, 75 * i);
+    });
+  }
+
+typeWriter(document.querySelector('h1'));
+typeWriter(document.querySelector('h2'));
+typeWriter(document.querySelector('p'));
 }
